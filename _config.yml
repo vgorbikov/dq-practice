@@ -3,3 +3,6 @@ description: Практические задания по курсу "профи
 theme: just-the-docs
 
 url: https://vgorbikov.github.io/dq-practice/
+
+mermaid:
+  version: "11.16.0"
