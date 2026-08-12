@@ -1,5 +1,5 @@
 ---
-title: Схема данных
+title: Тестовая БД
 nav_order: 2
 ---
 
@@ -26,7 +26,7 @@ block:raw_data
     raw_client
     raw_product
     raw_order
-    _["..."]
+    _1["..."]
 end
 
 space
@@ -36,7 +36,7 @@ block:detail
     dim_product
     dim_client
     fact_order
-    _["..."]
+    _2["..."]
 end
 
 space
