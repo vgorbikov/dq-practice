@@ -1,14 +1,16 @@
 ---
-title: Слой RAW_DATA
+title: Сырые данные
 parent: Схема данных
 nav_order: 2
 ---
 
-# RAW_DATA
+# Слой сырых данных
 
 Ниже представлены таблицы слоя сырых данны. Это исторические данные, полученные от источников "как есть".
 
 Некоторые связанные сущности приведены к плоскому виду. Каждая запись имеет код системы-источника и дату загрузки.
+
+## raw_client
 
 ```mermaid
 erDiagram
@@ -31,6 +33,13 @@ raw_client {
     load_dttm timestamptz "Время загрузки заипси с источника"
 }
 
+```
+
+## raw_product
+
+```mermaid
+erDiagram
+
 raw_product {
     product_id text PK "ID продукта"
     product_name text "Наименование продукта"
@@ -47,6 +56,13 @@ raw_product {
     load_dttm timestamptz "Время загрузки заипси с источника"
 }
 
+```
+
+## raw_category
+
+```mermaid
+erDiagram
+
 raw_category {
     category_id int PK "ID категории"
     category_name text "Наименование категории"
@@ -54,6 +70,13 @@ raw_category {
     src_system text "Наименование системы-источника"
     load_dttm timestamptz "Время загрузки заипси с источника"
 }
+
+```
+
+## raw_currency
+
+```mermaid
+erDiagram
 
 raw_currency {
     currency_id int PK "ID валюты"
@@ -63,6 +86,13 @@ raw_currency {
     load_dttm timestamptz "Время загрузки заипси с источника"
 }
 
+```
+
+## raw_stock
+
+```mermaid
+erDiagram
+
 raw_stock {
     product_id text PK,FK "Ссылка на продукт"
     last_update timestamptz PK "Время последнего обновления остатка"
@@ -71,12 +101,25 @@ raw_stock {
     load_dttm timestamptz "Время загрузки заипси с источника"
 }
 
+```
+
+## raw_supply
+
+```mermaid
+erDiagram
 raw_supply {
     supply_id text PK "ID поставки"
     supply_datetime timestamptz "Время поставки"
     src_system text "Наименование системы-источника"
     load_dttm timestamptz "Время загрузки заипси с источника"
 }
+
+```
+
+## raw_supply_item 
+
+```mermaid
+erDiagram
 
 raw_supply_item {
     supply_id text PK,FK "Ссылка на поставку"
@@ -87,12 +130,26 @@ raw_supply_item {
     load_dttm timestamptz "Время загрузки заипси с источника"
 }
 
+```
+
+## raw_shipment
+
+```mermaid
+erDiagram
+
 raw_shipment {
     shipment_id text PK "ID отгрузки"
     shipment_datetime timestamptz "Время отгрузки"
     src_system text "Наименование системы-источника"
     load_dttm timestamptz "Время загрузки заипси с источника"
 }
+
+```
+
+## raw_shipment_item
+
+```mermaid
+erDiagram
 
 raw_shipment_item {
     shipment_id text PK,FK "Ссылка на отгрузку"
@@ -101,6 +158,13 @@ raw_shipment_item {
     src_system text "Наименование системы-источника"
     load_dttm timestamptz "Время загрузки заипси с источника"
 }
+
+```
+
+## raw_order
+
+```mermaid
+erDiagram
 
 raw_order {
     order_id text PK "ID заказа"
@@ -117,6 +181,13 @@ raw_order {
     load_dttm timestamptz "Время загрузки заипси с источника"
 }
 
+```
+
+## raw_order_position
+
+```mermaid
+erDiagram
+
 raw_order_position {
     order_id text PK,FK "Ссылка на заказ"
     product_id text PK,FK "Ссылка на продукт"
@@ -124,6 +195,12 @@ raw_order_position {
     src_system text "Наименование системы-источника"
     load_dttm timestamptz "Время загрузки заипси с источника"
 }
+
+```
+
+## raw_pick_up_point
+```mermaid
+erDiagram
 
 raw_pick_up_point {
     point_id text PK "ID пункта выдачи"
