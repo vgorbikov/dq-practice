@@ -3,5 +3,48 @@ title: Схема данных
 nav_order: 2
 ---
 
-- [Сервисы предприятия](/docs/db_schema/Сервисы%20предприятия)
-- [RAW_DATA](/docs/db_schema/Слой%20RAW_DATA)
+## Тестовая БД
+
+Тестовая БД представляет хранилище данных интернет-магазина (маркетплейса). 
+
+Данные из операционных БД отдельных сервисов агрегируются на слое сырых данных, после чего попадают в таблицы измерений и таблицы фактов (детальный слой). На основе детального слоя строятся прикладные витрины.
+
+```mermaid
+block
+
+block:apps
+    columns 1
+    a1[("ClientService")]
+    a2[("OrderService")]
+    a3[("ProductService")]
+end 
+
+space
+
+block:raw_data
+    columns 1
+    raw_client
+    raw_product
+    raw_order
+    _["..."]
+end
+
+space
+
+block:detail
+    columns 1
+    dim_product
+    dim_client
+    fact_order
+    _["..."]
+end
+
+space
+
+marts
+
+apps --> raw_data
+raw_data --> detail
+detail --> marts
+
+```
