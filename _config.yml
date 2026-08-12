@@ -1,8 +1,11 @@
 title: Практика по профилированию и качеству данных
 description: Практические задания по курсу "профилирование и качество данных"
 theme: just-the-docs
-
 url: https://vgorbikov.github.io/dq-practice/
-
+defaults:
+  - scope:
+      path: "docs/" 
+    values:
+      layout: default
 mermaid:
   version: "11.16.0"
